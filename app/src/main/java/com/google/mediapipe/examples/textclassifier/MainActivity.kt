@@ -29,7 +29,8 @@ import com.google.mediapipe.examples.textclassifier.databinding.ActivityMainBind
 import com.google.mediapipe.tasks.text.textclassifier.TextClassifierResult
 import java.util.Locale
 
-class MainActivity : AppCompatActivity() {
+// Extending MainActivity TextToSpeech.OnInitListener class
+class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private var _activityMainBinding: ActivityMainBinding? = null
     private val activityMainBinding get() = _activityMainBinding!!
@@ -117,5 +118,10 @@ class MainActivity : AppCompatActivity() {
         } else {
             super.onBackPressed()
         }
+    }
+
+    //Override onInit from TextToSpeech.OnInitListener
+    override fun onInit(p0: Int) {
+        TODO("Not yet implemented")
     }
 }
