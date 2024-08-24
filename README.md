@@ -1,10 +1,17 @@
-# MediaPipe Tasks Text Classification Android Demo
+# Text Classification (Speech Edition) Android Demo
 
 ### Overview
 
-This sample will accept text entered into a field and classify it as either
+This App will accept text entered into a field and classify it as either
 positive or negative with a provided confidence score. The supported
 classification models include Word Vector and MobileBERT.
+
+And it will also speech the classification either postive or negative
+based on the provided confidence score
+
+if postive confidence score with more than 0.5 it'll speech "Postive"
+
+if negative confidence score with more than 0.5 it'll speech "Negative"
 
 These instructions walk you through building and running the demo on an Android
 device.
@@ -13,7 +20,6 @@ The model files are downloaded via Gradle scripts when you build and run the
 app. You don't need to do any steps to download TFLite models into the project
 explicitly.
 
-![Text Classification Demo](textclassification.gif?raw=true "Text Classification Demo")
 
 ## Build the demo using Android Studio
 
