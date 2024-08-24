@@ -58,6 +58,26 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                         it.score()
                     }, classifierHelper.currentModel
                 )
+
+    /* =============================================== ADDED ======================================== */
+                //Getting categoryName of index 0 from categories list   
+                var categoryName = results.classificationResult()
+                    .classifications().first()
+                    .categories()[0].categoryName()
+                //Getting categoryScore of index 0 from categories list  
+                var categoryScore = results.classificationResult()
+                    .classifications().first()
+                    .categories()[0].score()
+
+                //Checking categoryName and its score if greater than 0.5f to speech postive or negative as
+                //CategoryName "1" => is Positive
+                //CategoryName "0" => is Negative
+                if (categoryName.equals("1") && categoryScore > 0.5f){
+                    speakOut("Positive")
+                }
+                else if (categoryName.equals("0") && categoryScore > 0.5f){
+                    speakOut("Negative")
+                }
             }
         }
 
