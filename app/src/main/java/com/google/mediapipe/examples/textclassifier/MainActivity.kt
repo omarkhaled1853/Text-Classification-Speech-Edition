@@ -31,7 +31,9 @@ import java.util.Locale
 
 // Extending MainActivity TextToSpeech.OnInitListener class
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
-
+    //Making instance of TextToSpeech to perform text to speach conversion
+    private var tts: TextToSpeech? = null
+    
     private var _activityMainBinding: ActivityMainBinding? = null
     private val activityMainBinding get() = _activityMainBinding!!
     private lateinit var classifierHelper: TextClassifierHelper
@@ -121,7 +123,17 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     //Override onInit from TextToSpeech.OnInitListener
-    override fun onInit(p0: Int) {
-        TODO("Not yet implemented")
+    override fun onInit(status: Int) {
+        //Checks if the initialization was successful
+        if (status == TextToSpeech.SUCCESS) {
+            // Set language to US English
+            val result = tts!!.setLanguage(Locale.US)
+
+            //Checks if the language data is missing or not supported
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                // Log error if language not supported
+                Log.e("TTS","The Language not supported!")
+            }
+        }
     }
 }
