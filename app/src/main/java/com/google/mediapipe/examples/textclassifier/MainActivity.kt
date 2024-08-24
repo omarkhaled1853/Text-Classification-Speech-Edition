@@ -142,4 +142,10 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
         }
     }
+
+    /* =============================================== ADDED ======================================== */
+    //SpeakOut function that speech given text
+    private fun speakOut(text: String) {
+        tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null,"")
+    }
 }
