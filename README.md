@@ -20,6 +20,7 @@ The model files are downloaded via Gradle scripts when you build and run the
 app. You don't need to do any steps to download TFLite models into the project
 explicitly.
 
+https://github.com/user-attachments/assets/27247e59-7e14-423e-8f5b-2e3952ffcb5c
 
 ## Build the demo using Android Studio
 
