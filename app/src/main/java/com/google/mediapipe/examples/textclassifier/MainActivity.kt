@@ -31,6 +31,7 @@ import java.util.Locale
 
 // Extending MainActivity TextToSpeech.OnInitListener class
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
+    /* =============================================== ADDED ======================================== */
     //Making instance of TextToSpeech to perform text to speach conversion
     private var tts: TextToSpeech? = null
     
@@ -67,6 +68,10 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        /* =============================================== ADDED ======================================== */
+        //Initializes the TextToSpeech engine and passes this as both the context and the OnInitListener
+        tts = TextToSpeech(this, this)
+
         _activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
@@ -122,6 +127,7 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
     }
 
+    /* =============================================== ADDED ======================================== */
     //Override onInit from TextToSpeech.OnInitListener
     override fun onInit(status: Int) {
         //Checks if the initialization was successful
